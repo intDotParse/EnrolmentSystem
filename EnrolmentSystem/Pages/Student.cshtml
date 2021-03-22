@@ -17,7 +17,7 @@
             </div>
             <div class="form-group">
                 <label>Address</label>
-                <input class="form-control" asp-for="Student.Address" />
+                <input class="form-control" asp-for="Student.Address"/>
             </div>
             <button class="btn btn-primary btn-block" type="submit">Save</button>
         </form>
@@ -30,6 +30,7 @@
             <th>Name</th>
             <th>Age</th>
             <th>Address</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -40,6 +41,7 @@
                 <td>@student.Name</td>
                 <td>@student.Age</td>
                 <td>@student.Address</td>
+                <td><a asp-page="Edit" asp-route-id="@student.StudentId">Edit</a> | <a asp-page="Student" asp-page-handler="Delete" asp-route-id="@student.StudentId">Delete</a></td>
             </tr>
         }
     </tbody>

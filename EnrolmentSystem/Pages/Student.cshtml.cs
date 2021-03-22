@@ -38,5 +38,25 @@ namespace EnrolmentSystem.Pages
             _enrollmentdbcontext.SaveChanges();
             return Redirect("/student");
         }
+
+        public void OnGetDelete(int id)
+        {
+            //query the student to delete
+            var stud = _enrollmentdbcontext.Students
+                .FirstOrDefault(s => s.StudentId == id);
+
+            //perform null check
+            if(stud != null)
+            {
+                //remove and update DB
+                _enrollmentdbcontext.Students.Remove(stud);
+                _enrollmentdbcontext.SaveChanges();
+            }
+           
+
+            //refresh the page
+            OnGet();
+
+        }
     }
 }
